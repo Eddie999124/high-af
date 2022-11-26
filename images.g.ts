@@ -251,22 +251,22 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 `;
             case "image3":
             case "myImage1":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . f f f f . . . . . 
+. . f f c c c c f f . . . 
+. f f c c c c c c f f . . 
+f f c c c c c c c c f f . 
+f f c c f c c c c c c f . 
+f f f f f c c c f c c f . 
+f f f f c c c f c c f f . 
+f f f f f f f f f f f f . 
+f f f f f f f f f f f f . 
+. f f f f f f f f f f . . 
+. f f f f f f f f f f . . 
+f e f f f f f f f f e f . 
+e 4 f 7 7 7 7 7 7 c 4 e . 
+e e f 6 6 6 6 6 6 f e e . 
+. . . f f f f f f . . . . 
+. . . f f . . f f . . . . 
 `;
         }
         return null;

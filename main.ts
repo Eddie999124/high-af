@@ -5,27 +5,35 @@ enum ActionKind {
 }
 function Change_level (Level_number: number) {
     if (Level_number == 1) {
-        tiles.setCurrentTilemap(tilemap`level3`)
+        console.log(Level_number)
+        story.startCutscene(function () {
+            NPC = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+            NPC.sayText("we have been attacked")
+            NPC.setPosition(164, 124)
+        })
+        tiles.setCurrentTilemap(tilemap`level18`)
     } else if (Level_number == 2) {
+        console.log(Level_number)
+        NPC.destroy()
         tiles.setCurrentTilemap(tilemap`level0`)
     } else if (Level_number == 3) {
-        tiles.setCurrentTilemap(tilemap`level3`)
+        console.log(Level_number)
+        tiles.setCurrentTilemap(tilemap`level18`)
     } else if (Level_number == 4) {
+        console.log(Level_number)
         tiles.setCurrentTilemap(tilemap`level1`)
     }
-    tiles.placeOnRandomTile(mySprite, sprites.builtin.forestTiles0)
+    tiles.placeOnRandomTile(Hero, sprites.dungeon.floorLight1)
 }
-info.onScore(30, function () {
-    game.showLongText("LEVEL 2", DialogLayout.Full)
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileGrass1, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorOpenNorth, function (sprite, location) {
     Current_level += 1
     Change_level(Current_level)
 })
+let NPC: Sprite = null
 let Current_level = 0
-let mySprite: Sprite = null
-game.splash("")
-mySprite = sprites.create(img`
+let Hero: Sprite = null
+game.splash("it all started that night")
+Hero = sprites.create(img`
     ........................
     ....ffffff..............
     ..ffeeeef2f.............
@@ -51,9 +59,13 @@ mySprite = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
-mySprite.setStayInScreen(true)
+Hero.setPosition(-6, 123)
+Hero.setStayInScreen(true)
+effects.starField.startScreenEffect()
+Current_level = 1
+Change_level(1)
 animation.runImageAnimation(
-mySprite,
+Hero,
 [img`
     . . . . . . f f f f f f . . . . 
     . . . . f f e e e e f 2 f . . . 
@@ -124,10 +136,8 @@ mySprite,
     . . . . . f f . . . f f f . . . 
     `],
 100,
-false
+true
 )
-mySprite.setPosition(0, 115)
-controller.moveSprite(mySprite)
-scene.cameraFollowSprite(mySprite)
-Current_level = 1
-Change_level(1)
+scene.cameraShake(4, 500)
+controller.moveSprite(Hero)
+scene.cameraFollowSprite(Hero)
